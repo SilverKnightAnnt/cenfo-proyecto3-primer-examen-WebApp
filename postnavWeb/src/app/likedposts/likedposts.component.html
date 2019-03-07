@@ -1,0 +1,42 @@
+<ul>
+  <li><a routerLink="../General">Posts generales</a></li>
+  <li><a routerLink="../Registration">Crear una publicación</a></li>
+  <li><a routerLink="../UserPosts">Mis publicaciones</a></li>
+  <li><a routerLink="../RecommendedPosts">Publicaciones sugeridas</a></li>
+  <li><a class="active" routerLink="../LikedPosts">Publicaciones que me gustan</a></li>
+  <li style="float:right"><a routerLink="">Cerrar sesión</a></li>
+</ul>
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
+
+<div style="margin-top: 60px" class="container">
+  <div *ngFor="let post of posts"class="well">
+    <div class="media">
+      <a class="pull-left" routerLink="../LikedPosts">
+        <img class="media-object" src="assets/img/user.png">
+      </a>
+      <div class="media-body">
+        <h4 class="media-heading">{{post.title}}</h4>
+        <p class="text-right">Por {{post.user.nickName}}</p>
+        <p>{{post.text}}</p>
+        <div style="margin-top: 50px" class="d-flex flex-row">
+          <div><span><i class="glyphicon glyphicon-calendar"></i>{{post.timeStamp}}</span></div>
+          <div style="margin-left: 25px">|</div>
+          <span style="margin-left: 25px; cursor: pointer" routerLink="../Commentaries" (click)="commentAction(asd)">
+            <i class="glyphicon glyphicon-comment"></i> Comentarios</span>
+          <div style="margin-left: 25px">|</div>
+          <div style="margin-left: 25px">
+            <span style="cursor: pointer" routerLink="../LikedPosts" id="{{post.id}}" (click)="likeAction($event.target)" #asd>
+              <i class="glyphicon glyphicon-thumbs-up"></i> Me gusta</span>
+          </div>
+          <div style="margin-left: 25px">|</div>
+          <p style="margin-left: 25px"><i class="fa fa-tags"></i> Tags:
+          <div *ngFor="let tag of post.tags">
+            <a routerLink="../LikedPosts"><span class="badge badge-info">{{tag.name}}</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

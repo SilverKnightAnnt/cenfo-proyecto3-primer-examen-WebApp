@@ -1,0 +1,40 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Muestra tu opinión</h5>
+      <button style="float: right" routerLink="../General" type="button" class="btn btn-primary">Atrás</button>
+    </div>
+    <div class="modal-body">
+      <form id="commentsForm">
+        <div class="form-group">
+         <input #inp type="text" class="form-control" id="commentText" placeholder="Escribe un comentario"
+                 name="comment" [(ngModel)]="commentModel.comment">
+          <div id="commentTextMessage" hidden="true" class="invalid-feedback">
+            Comentario es requerido.
+          </div>
+          <div style="margin-top: 30px">
+            <button (click)="submitedData()" type="submit" class="btn btn-secondary">Publicar</button>
+            <button style="margin-left: 20px" id="edit" hidden="true" (click)="save()" type="submit" class="btn btn-dark">Guardar</button>
+          </div>
+          <div id="dangerAlert" hidden="true" class="alert alert-danger" role="alert">
+            ¡Por favor llenar los espacios vacíos!
+          </div>
+          <h5 class="modal-title" id="ModalLabel" style="margin-top: 30px">Comentarios recientes</h5>
+          <ul class="list-group" *ngFor="let comment of commentaries">
+            <li class="list-group-item">
+              <strong>{{comment.user.nickName}}: </strong>
+              <p #com>{{comment.comment}}</p>
+              <button style="float: right" hidden="true" #asd id="{{comment.id}}" class="btn btn-info"
+                      (click)="editComment(com,inp, asd)">Editar</button>
+            </li>
+          </ul>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+    </div>
+    <div id="successAlert" hidden="true" class="alert alert-success" role="alert">
+      ¡Publicado exitosamente!
+    </div>
+  </div>
+</div>

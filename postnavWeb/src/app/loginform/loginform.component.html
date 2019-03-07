@@ -1,0 +1,31 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Inicio de sesión</h5>
+    </div>
+    <div class="modal-body">
+      <form id="loginForm">
+        <div class="form-group">
+          <input type="text" class="form-control" id="userName" placeholder="Nombre de usuario"
+                 name="nickName" [(ngModel)]="userModel.nickName">
+          <div id="userNameMessage" hidden="true" class="invalid-feedback">
+            Nombre de usuario es requerido.
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button (click)="logIn()" type="submit" class="btn btn-secondary">Iniciar sesión</button>
+      <button routerLink="Registration/User" type="button" class="btn btn-dark">Registrarse</button>
+    </div>
+    <div id="dangerAlert" hidden="true" class="alert alert-danger" role="alert">
+      ¡Por favor llenar los espacios vacíos!
+    </div>
+    <div id="warningAlert" hidden="true" class="alert alert-warning" role="alert">
+      Usuario inexistente.
+    </div>
+  </div>
+</div>
+
+
+

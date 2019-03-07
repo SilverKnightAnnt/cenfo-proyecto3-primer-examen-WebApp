@@ -1,0 +1,43 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Registro de usuario</h5>
+    </div>
+    <div class="modal-body">
+      <form #asd id="userForm">
+        <div class="form-group">
+          <input type="text" class="form-control" id="userName" placeholder="Nombre de usuario"
+                 name="nickName" [(ngModel)]="userModel.nickName">
+          <div id="userNameMessage" hidden="true" class="invalid-feedback">
+            Nombre de usuario es requerido.
+          </div>
+          <h5 class="modal-title" id="ModalLabel" style="margin-top: 30px">Dinos tus preferencias</h5>
+          <div *ngFor="let preference of preferences" class="custom-control custom-checkbox custom-control-inline">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" value="{{preference.id}}" name="tags" id="{{preference.id}}">
+              <label class="custom-control-label" for="{{preference.id}}">{{preference.name}}</label>
+            </div>
+          </div>
+          <div id="tagsMessage" hidden="true" class="invalid-feedback">
+            Al menos una preferencia es requerida.
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button (click)="toggleEditable(asd); submitedData()" type="submit" class="btn btn-secondary">Registrar</button>
+      <button routerLink="../Preferences" type="button" class="btn btn-dark">Crear preferencia</button>
+      <button routerLink="" type="button" class="btn btn-primary">Atrás</button>
+    </div>
+    <div id="successAlert" hidden="true" class="alert alert-success" role="alert">
+      ¡Registrado exitosamente!
+    </div>
+    <div id="dangerAlert" hidden="true" class="alert alert-danger" role="alert">
+      ¡Por favor llenar los espacios vacíos!
+    </div>
+    <div id="warningAlert" hidden="true" class="alert alert-warning" role="alert">
+      Usuario ya registrado.
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,36 @@
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Registro de preferencias</h5>
+      </div>
+      <div class="modal-body">
+        <form id="tagsForm">
+          <div class="form-group">
+            <input type="text" class="form-control" id="tagName" placeholder="Nombre de la preferencia"
+                   name="name" [(ngModel)]="tagModel.name"required>
+            <div id="tagNameMessage" hidden="true" class="invalid-feedback">
+              Nombre de la preferencia es requerido.
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button (click)="submitedData()" type="submit" class="btn btn-secondary">Registrar</button>
+        <button routerLink="../User" type="button" class="btn btn-primary">Atrás</button>
+      </div>
+      <div id="successAlert" hidden="true" class="alert alert-success" role="alert">
+        ¡Registrado exitosamente!
+      </div>
+      <div id="dangerAlert" hidden="true" class="alert alert-danger" role="alert">
+        ¡Por favor llenar los espacios vacíos!
+      </div>
+      <div id="warningAlert" hidden="true" class="alert alert-warning" role="alert">
+        Preferencia ya registrada.
+      </div>
+    </div>
+  </div>
+
+
+
+
+
